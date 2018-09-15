@@ -1,0 +1,19 @@
+.rclone-general {
+  margin: 1em
+}
+.h2 {
+  text-align: center;
+}
+
+
+.success{
+  color: green;
+}
+
+.warning {
+  color: orange;
+}
+
+.failed{
+  color: red;
+}

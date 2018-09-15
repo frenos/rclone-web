@@ -1,0 +1,9 @@
+<div class="container">
+  <p-card title="Settings">
+    <div class="p-grid" *ngFor="let setting of this.settings | keyvalue">
+      <div class="p-col">{{setting.key}}</div>
+      <div class="p-col"><input #valueinput type="text" size="30" pInputText value={{setting.value}}></div>
+      <div class="p-col"><p-button class="ui-button-raised" type="button" label="Save" icon="fa fa-check" (onClick)='saveSetting(setting.key, valueinput.value)'></p-button></div>
+    </div>
+  </p-card>
+</div>

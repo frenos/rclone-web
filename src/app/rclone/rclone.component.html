@@ -1,0 +1,32 @@
+<div *ngIf="status">
+  <div class="container">
+    <p-card class="rclone-general" title="General Information">
+      <div class="p-grid">
+        <div class="p-col">Bytes: {{status.bytes | fileSize}}</div>
+        <div class="p-col">Elapsed Time: {{status.elapsedTime | timeSpan | date:'HH:mm:ss'}}</div>
+        <div class="p-col">Speed: {{status.speed | fileSize}}/s</div>
+      </div>
+      <div class="p-grid">
+        <div class="p-col success">Finished: {{status.transfers}}</div>
+        <div class="p-col warning">Deletes: {{status.deletes}}</div>
+        <div class="p-col failed">Errors: {{status.errors}}</div>
+      </div>
+
+      <div class="p-grid">
+        <div class="p-col">Checks: {{status.checks}}</div>
+        <div class="p-col">Transfers: {{status.transferring.length}}</div>
+        <div class="p-col">
+          <input type="text" pInputText #bwlimit_input placeholder="new BWlimit" value="" />
+          <p-button label="set Limit" (onClick)='setLimit(bwlimit_input.value)'></p-button>
+        </div>
+      </div>
+
+
+    </p-card>
+    <div *ngIf="status.transferring">
+      <div *ngFor="let transfer of status.transferring">
+        <app-rclone-detail [transfer]=transfer></app-rclone-detail>
+      </div>
+    </div>
+  </div>
+</div>

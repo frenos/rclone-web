@@ -1,0 +1,16 @@
+<p-card class="rclone-detail">
+  <p-header>
+    <h3 class="heading">{{transfer.name}}</h3>
+  </p-header>
+  <div class="p-grid">
+    <div class="p-col">ETA: {{transfer.eta | timeSpan | date:'HH:mm:ss'}}</div>
+  </div>
+  <div class="p-grid">
+    <div class="p-col">{{transfer.bytes | fileSize}} of {{transfer.size | fileSize}}</div>
+    <div class="p-col">Speed: {{transfer.speed | fileSize}}/s</div>
+    <div class="p-col">Avg: {{transfer.speedAvg | fileSize}}/s</div>
+  </div>
+  <p-footer>
+    <p-progressBar [value]="transfer.percentage"></p-progressBar>
+  </p-footer>
+</p-card>
