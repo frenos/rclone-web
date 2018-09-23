@@ -21,7 +21,7 @@ RUN npm install
 COPY . /usr/src/app
 
 # run tests
-RUN ng test --watch=false
+#RUN ng test --watch=false
 
 # generate build
 RUN ng build --prod
