@@ -33,6 +33,8 @@ RUN ng build --prod
 # base image
 FROM nginx:1.13.9-alpine
 
+RUN rm -rf /usr/share/nginx/html/*
+
 # copy artifact build from the 'build environment'
 COPY --from=builder /usr/src/app/dist/rclone-web /usr/share/nginx/html
 
